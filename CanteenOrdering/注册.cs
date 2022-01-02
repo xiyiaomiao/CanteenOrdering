@@ -65,13 +65,15 @@ namespace CanteenOrdering
                     MessageBox.Show("密码不一致!", "提示");
 
                 }
-                else { 
-                // 设置连接字符串
-                string ConnectionString = "server=.;" +
-                 "database=食堂送餐数据库;UID=sa;PWD=123456";   //修改为你的用户名和密码
-                //DataSet dataset = new DataSet(); // 创建数据集
-                                                 // 创建一个新连接
-                SqlConnection SqlCon = new SqlConnection(ConnectionString);
+                else {
+                    // 设置连接字符串
+                    //   string ConnectionString = "server=.;" +
+                    //    "database=食堂送餐数据库;UID=sa;PWD=123456";   //修改为你的用户名和密码
+                    string ConnectionString = "Data Source=LAPTOP-3CGT6SVO;Initial Catalog=食堂;Integrated Security=True";
+
+                    //DataSet dataset = new DataSet(); // 创建数据集
+                    // 创建一个新连接
+                    SqlConnection SqlCon = new SqlConnection(ConnectionString);
                 SqlCon.Open(); //打开数据库
                 string sql1 = "Select * from 登录注册 where 用户名='" + userid + "' and 类别='" + classifi + "'";//查找用户sql语句
                 SqlCommand cmd1 = new SqlCommand(sql1, SqlCon);

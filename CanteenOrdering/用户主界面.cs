@@ -30,11 +30,20 @@ namespace CanteenOrdering
             SqlDataReader sdr;
             sdr = cmd.ExecuteReader();//返回一个数据流
 
+            
             while (sdr.Read())
             {
                 num++;
             }
-            
+            cmd.Cancel();
+            sdr.Close();
+
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(sql, SqlCon);
+            DataSet myDataSet = new DataSet();      // 创建DataSet
+            myDataAdapter.Fill(myDataSet, "店铺");	// 将返回的数据集作为“表”填入DataSet中，表名可以与数据库真实的表名不同，并不影响后续的增、删、改等操作
+            DataTable myTable = myDataSet.Tables["店铺"];
+            DataRow row = myTable.Rows[0];
+
 
             FlowLayoutPanel[] flow;
             flow = new FlowLayoutPanel[num];
@@ -48,13 +57,13 @@ namespace CanteenOrdering
             {
                 pict[i] = new System.Windows.Forms.PictureBox();
                 pict[i].SizeMode = PictureBoxSizeMode.Zoom;
-                pict[i].Image = Image.FromFile(@"C:\Users\木滋蔓\Pictures\test\" + (i + 1) + ".jpg");//导入图片
-                pict[i].Size = new Size(200, 200);//设置图片大小
+                //   pict[i].Image = Image.FromFile("食堂" + (i + 1) + ".jpg");//导入图片
+                pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\"+(i+1)+".jpg");
+                pict[i].Size = new Size(200, 100);//设置图片大小
                 pict[i].BorderStyle = BorderStyle.None;//取消边框
                 pict[i].Image.Tag = i;
                 lab[i] = new System.Windows.Forms.Label();
-                //lab[j].Text = sdr["店铺名称"].ToString();
-                lab[i].Text = "1";
+                lab[i].Text = "     "+myTable.Rows[i]["店铺名称"].ToString();
                 lab[i].Visible = true;
                 lab[i].AutoSize = true;
                 lab[i].Font = new System.Drawing.Font("宋体", 15F,
@@ -65,7 +74,6 @@ namespace CanteenOrdering
                 flow[i].WrapContents = false;
                 flow[i].AutoScroll = true;
                 flow[i].AutoSize = true;
-
                 flow[i].Controls.Add(pict[i]);
                 flow[i].Controls.Add(lab[i]);
                 flow[i].Visible = true;
