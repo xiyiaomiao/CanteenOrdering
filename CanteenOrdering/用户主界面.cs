@@ -83,10 +83,7 @@ namespace CanteenOrdering
         }
 
         public SqlConnection login_database(){
-                string ConnectionString = "server=.;" +
-                "database=食堂送餐数据库;UID=sa;PWD=123456";   //修改为你的用户名和密码
-            //string ConnectionString = "Data Source=LAPTOP-3CGT6SVO;Initial Catalog=食堂;Integrated Security=True";
-            // 创建一个新连接
+            string ConnectionString = CommonDate.ConnectionString;
             SqlConnection SqlCon = new SqlConnection(ConnectionString);
             SqlCon.Open(); //打开数据库
             return SqlCon;

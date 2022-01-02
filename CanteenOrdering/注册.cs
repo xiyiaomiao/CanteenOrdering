@@ -67,10 +67,7 @@ namespace CanteenOrdering
                 }
                 else {
                     // 设置连接字符串
-                    //   string ConnectionString = "server=.;" +
-                    //    "database=食堂送餐数据库;UID=sa;PWD=123456";   //修改为你的用户名和密码
-                    string ConnectionString = "Data Source=LAPTOP-3CGT6SVO;Initial Catalog=食堂;Integrated Security=True";
-
+                    string ConnectionString = CommonDate.ConnectionString;
                     //DataSet dataset = new DataSet(); // 创建数据集
                     // 创建一个新连接
                     SqlConnection SqlCon = new SqlConnection(ConnectionString);

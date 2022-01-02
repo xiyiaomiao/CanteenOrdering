@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonDate.cs" />
     <Compile Include="用户主界面.cs">
       <SubType>Form</SubType>
     </Compile>
