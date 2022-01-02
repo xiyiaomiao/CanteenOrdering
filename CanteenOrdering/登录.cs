@@ -44,9 +44,9 @@ namespace CanteenOrdering
             else//用户名或密码不为空
             {
                 // 设置连接字符串
-    //            string ConnectionString = "server=.;" +
- //    "database=食堂送餐数据库;UID=sa;PWD=XIAOYAN99";   //修改为你的用户名和密码
-                string ConnectionString = "Data Source=LAPTOP-3CGT6SVO;Initial Catalog=食堂;Integrated Security=True";
+               string ConnectionString = "server=.;" +
+   "database=食堂送餐数据库;UID=sa;PWD=123456";   //修改为你的用户名和密码
+                //string ConnectionString = "Data Source=LAPTOP-3CGT6SVO;Initial Catalog=食堂;Integrated Security=True";
                 DataSet dataset = new DataSet(); // 创建数据集
                                              // 创建一个新连接
                 SqlConnection SqlCon = new SqlConnection(ConnectionString);
@@ -59,6 +59,7 @@ namespace CanteenOrdering
                 if (sdr.Read())         //从结果中找到
                 {
                     MessageBox.Show("登录成功", "提示");
+                 
                     switch (classifi)
                     {
                         case "用户":
