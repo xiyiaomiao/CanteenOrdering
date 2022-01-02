@@ -62,7 +62,7 @@ namespace CanteenOrdering
                     {
                         case "用户":
                             this.Hide();
-                            用户主界面 useruse = new 用户主界面();
+                            用户主界面 useruse = new 用户主界面(userid);
                             useruse.Show();
                             break;
                     }

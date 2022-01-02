@@ -13,16 +13,36 @@ namespace CanteenOrdering
 {
     public partial class 用户主界面 : Form
     {
+        String user_id;
         
-        public 用户主界面()
+        public 用户主界面(String userid)
         {
+            user_id = userid;
             InitializeComponent();
-            generatorFlow();
+            tab1_generatorFlow();
         }
 
-        public void generatorFlow()
+        public void tab1_generatorFlow()
         {
             SqlConnection SqlCon = login_database();
+            String sql2 = "Select * from 用户 where 用户手机号='" + user_id+ "'";            
+            SqlCommand cmd2 = new SqlCommand(sql2, SqlCon);
+            cmd2.CommandType = CommandType.Text;
+            SqlDataReader sdr2;
+            sdr2 = cmd2.ExecuteReader();//返回一个数据流
+            if (sdr2.Read())
+            {
+                label1.Text = "欢迎！用户" + sdr2["昵称"] + "进行点餐！";
+            }
+            else
+            {
+                label1.Text = "欢迎！用户"+user_id+"进行点餐！";
+            }
+
+            cmd2.Cancel();
+            sdr2.Close();
+
+
             string sql = "Select * from 店铺";//查找用户sql语句
             SqlCommand cmd = new SqlCommand(sql, SqlCon);
             int num = 0;
@@ -57,7 +77,6 @@ namespace CanteenOrdering
             {
                 pict[i] = new System.Windows.Forms.PictureBox();
                 pict[i].SizeMode = PictureBoxSizeMode.Zoom;
-                //   pict[i].Image = Image.FromFile("食堂" + (i + 1) + ".jpg");//导入图片
                 pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\"+(i+1)+".jpg");
                 pict[i].Size = new Size(200, 100);//设置图片大小
                 pict[i].BorderStyle = BorderStyle.None;//取消边框
