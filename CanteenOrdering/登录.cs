@@ -45,7 +45,12 @@ namespace CanteenOrdering
             {
                 // 设置连接字符串
                 string ConnectionString = "server=.;" +
+<<<<<<< HEAD
                  "database=食堂送餐数据库;UID=sa;PWD=123456";   //修改为你的用户名和密码
+=======
+     "database=食堂送餐数据库;UID=sa;PWD=XIAOYAN99";   //修改为你的用户名和密码
+           //     string ConnectionString = "Data Source=LAPTOP-3CGT6SVO;Initial Catalog=食堂;Integrated Security=True";
+>>>>>>> 2ee2de6cc5635f2e2ba06004ad76b1e172112460
                 DataSet dataset = new DataSet(); // 创建数据集
                                              // 创建一个新连接
                 SqlConnection SqlCon = new SqlConnection(ConnectionString);
@@ -71,6 +76,11 @@ namespace CanteenOrdering
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             this.textBox2.PasswordChar = '*';
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
