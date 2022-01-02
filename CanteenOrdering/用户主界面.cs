@@ -20,6 +20,7 @@ namespace CanteenOrdering
             user_id = userid;
             InitializeComponent();
             tab1_generatorFlow();
+            tab2_mes();
         }
 
         public void tab1_generatorFlow()
@@ -43,7 +44,7 @@ namespace CanteenOrdering
             sdr2.Close();
 
 
-            string sql = "Select * from 店铺";//查找用户sql语句
+            string sql = "Select * from 店铺";//查找所有店铺语句
             SqlCommand cmd = new SqlCommand(sql, SqlCon);
             int num = 0;
             cmd.CommandType = CommandType.Text;
@@ -77,7 +78,7 @@ namespace CanteenOrdering
             {
                 pict[i] = new System.Windows.Forms.PictureBox();
                 pict[i].SizeMode = PictureBoxSizeMode.Zoom;
-                pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\"+(i+1)+".jpg");
+                pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\"+ myTable.Rows[i]["店铺名称"].ToString() + ".jpg");
                 pict[i].Size = new Size(200, 100);//设置图片大小
                 pict[i].BorderStyle = BorderStyle.None;//取消边框
                 pict[i].Image.Tag = i;
@@ -97,6 +98,47 @@ namespace CanteenOrdering
                 flow[i].Controls.Add(lab[i]);
                 flow[i].Visible = true;
                 flowLayoutPanel1.Controls.Add(flow[i]);
+            }
+            SqlCon.Close();
+        }
+
+        public void tab2_mes()
+        {
+            SqlConnection SqlCon = login_database();
+
+            string sql = "Select * from 订单";//查找用户的订单
+            SqlCommand cmd = new SqlCommand(sql, SqlCon);
+            int num = 0;
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader sdr;
+            sdr = cmd.ExecuteReader();//返回一个数据流
+
+
+            while (sdr.Read())
+            {
+                num++;
+            }
+            cmd.Cancel();
+            sdr.Close();
+
+            SqlDataAdapter myDataAdapter = new SqlDataAdapter(sql, SqlCon);
+            DataSet myDataSet = new DataSet();      // 创建DataSet
+            myDataAdapter.Fill(myDataSet, "订单");	// 将返回的数据集作为“表”填入DataSet中，表名可以与数据库真实的表名不同，并不影响后续的增、删、改等操作
+            DataTable myTable = myDataSet.Tables["订单"];
+            DataRow row = myTable.Rows[0];
+
+
+            FlowLayoutPanel[] flow;
+            flow = new FlowLayoutPanel[num];
+            PictureBox[] pict;
+            pict = new PictureBox[num];
+            Label[] lab;
+            lab = new Label[num];
+
+
+            for (int i = 0; i < num; i++)
+            {
+                
             }
             SqlCon.Close();
         }
