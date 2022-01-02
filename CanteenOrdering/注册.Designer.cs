@@ -68,7 +68,7 @@ namespace CanteenOrdering
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(659, 241);
+            this.textBox2.Location = new System.Drawing.Point(659, 245);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(306, 34);
@@ -144,6 +144,7 @@ namespace CanteenOrdering
             this.button1.TabIndex = 8;
             this.button1.Text = "注册";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
