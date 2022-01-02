@@ -30,6 +30,10 @@ namespace CanteenOrdering
             SqlDataReader sdr;
             sdr = cmd.ExecuteReader();//返回一个数据流
 
+            while (sdr.Read())
+            {
+                num++;
+            }
             
 
             FlowLayoutPanel[] flow;
@@ -50,7 +54,7 @@ namespace CanteenOrdering
                 pict[i].Image.Tag = i;
                 lab[i] = new System.Windows.Forms.Label();
                 //lab[j].Text = sdr["店铺名称"].ToString();
-                lab[i].Text = sdr[i].ToString();
+                lab[i].Text = "1";
                 lab[i].Visible = true;
                 lab[i].AutoSize = true;
                 lab[i].Font = new System.Drawing.Font("宋体", 15F,
@@ -65,7 +69,6 @@ namespace CanteenOrdering
                 flow[i].Controls.Add(pict[i]);
                 flow[i].Controls.Add(lab[i]);
                 flow[i].Visible = true;
-
                 flowLayoutPanel1.Controls.Add(flow[i]);
             }
             SqlCon.Close();
