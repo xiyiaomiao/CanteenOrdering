@@ -39,13 +39,13 @@ namespace CanteenOrdering
             string classifi = this.comboBox1.Text;
             if (userid.Equals("") || password.Equals("") || classifi.Equals(""))//用户名或密码为空
             {
-                MessageBox.Show("用户名或密码不能为空");
+                MessageBox.Show("用户名、密码或登录类型不能为空");
             }
             else//用户名或密码不为空
             {
                 // 设置连接字符串
                 string ConnectionString = "server=.;" +
-                 "database=食堂送餐数据库;UID=sa;PWD=XIAOYAN99";   //修改为你的用户名和密码
+                 "database=食堂送餐数据库;UID=sa;PWD=123456";   //修改为你的用户名和密码
                 DataSet dataset = new DataSet(); // 创建数据集
                                              // 创建一个新连接
                 SqlConnection SqlCon = new SqlConnection(ConnectionString);

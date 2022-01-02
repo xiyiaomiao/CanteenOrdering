@@ -114,7 +114,7 @@ namespace CanteenOrdering
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 30);
             this.label4.TabIndex = 19;
-            this.label4.Text = "注册类型";
+            this.label4.Text = "登录类型";
             // 
             // comboBox1
             // 
