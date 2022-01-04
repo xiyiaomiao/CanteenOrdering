@@ -46,16 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="商家.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="商家.Designer.cs">
       <DependentUpon>商家.cs</DependentUpon>
     </Compile>
-=======
     <Compile Include="CommonDate.cs" />
->>>>>>> 8deeba6176e871db14b2dccd59baaa9a9f1bef15
     <Compile Include="用户主界面.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +83,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="商家.resx">
+      <DependentUpon>商家.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="注册.resx">
       <DependentUpon>注册.cs</DependentUpon>
     </EmbeddedResource>
