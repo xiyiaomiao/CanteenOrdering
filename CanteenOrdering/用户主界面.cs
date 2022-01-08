@@ -305,7 +305,7 @@ namespace CanteenOrdering
             }
             if (num == 0)//说明只是刚刚注册还未登记进入用户表
             {
-                label5.Text = "unknowm";
+                label3.Text = "unknowm";
                 label7.Text = "unknown";
                 MessageBox.Show("请点击修改完善个人信息\n否则点餐将出现问题！");
             }
@@ -406,11 +406,28 @@ namespace CanteenOrdering
                 }
                 else//未登记用户，插入
                 {
-
+                    SqlConnection SqlCon = login_database();
+                    String sql = "insert into 用户 " +
+                        "values('"+ user_id + "','"+textBox1.Text+"'," +
+                        "'"+textBox2.Text+"')";
+                    SqlCommand cmd = new SqlCommand(sql, SqlCon);
+                    cmd.CommandType = CommandType.Text;
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        MessageBox.Show("修改成功！");
+                        label3.Text = textBox1.Text;
+                        label7.Text = textBox2.Text;
+                    }
+                    SqlCon.Close();
                 }
             }
 
             
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;//隐藏面板1，显示另外一个面板
         }
     }
 }
