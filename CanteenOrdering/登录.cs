@@ -33,6 +33,7 @@ namespace CanteenOrdering
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             //获取文本框中的值
             string userid = this.textBox1.Text;
             string password = this.textBox2.Text;
