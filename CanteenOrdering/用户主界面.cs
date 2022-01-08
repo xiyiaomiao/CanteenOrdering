@@ -13,6 +13,7 @@ namespace CanteenOrdering
 {
     public partial class 用户主界面 : Form
     {
+        Boolean flag = false;
         String user_id;
         
         public 用户主界面(String userid)
@@ -21,6 +22,7 @@ namespace CanteenOrdering
             InitializeComponent();
             tab1_generatorFlow();
             tab2_generatorFlow();
+            tab3_ini();
         }
 
         public void tab1_generatorFlow()
@@ -197,7 +199,6 @@ namespace CanteenOrdering
             this.listView1.Items.Clear();  //只移除所有的项
             SqlConnection SqlCon = login_database();
             
-
             //convert(varchar,下单时间,21) LIKE '%2021-11-25%'
 
             SqlCommand cmd = new SqlCommand(sql, SqlCon);
@@ -261,12 +262,8 @@ namespace CanteenOrdering
 
 
             ImageList imgList = new ImageList();
-
             imgList.ImageSize = new Size(1, 20);// 设置行高 20 //分别是宽和高
-
             listView1.SmallImageList = imgList; //这里设置listView的SmallImageList ,用imgList将其撑大
-
-
             SqlCon.Close();
             
         }
@@ -281,6 +278,138 @@ namespace CanteenOrdering
                 "and convert(varchar,下单时间,21) like'%" + dt.ToString("yyyy-MM") + "%' " +
                 "and 订单.订单编号=购买.订单编号";
             listview1_update(dt, sql);
+            
+        }
+        
+        public void tab3_ini()
+        {
+            textBox1.Visible = false;//昵称
+            textBox2.Visible = false;//地址
+            
+            label5.Text = user_id;//昵称
+
+            SqlConnection SqlCon = login_database();
+            String sql = "select * from 用户 where 用户手机号='" + user_id + "'";
+            SqlCommand cmd = new SqlCommand(sql, SqlCon);
+            int num = 0;
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader sdr;
+            sdr = cmd.ExecuteReader();//返回一个数据流
+
+
+            while (sdr.Read())
+            {
+                label3.Text = sdr["昵称"].ToString();
+                label7.Text = sdr["地址名称"].ToString();
+                num++;
+            }
+            if (num == 0)//说明只是刚刚注册还未登记进入用户表
+            {
+                label5.Text = "unknowm";
+                label7.Text = "unknown";
+                MessageBox.Show("请点击修改完善个人信息\n否则点餐将出现问题！");
+            }
+            else
+            {
+                flag = true;//说明是注册过的登记用户
+            }
+            cmd.Cancel();
+            sdr.Close();
+
+
+
+
+            SqlCon.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (button3.Text.Equals("修改个人信息"))
+            {
+                //此时为修改状态
+                button3.Text = "修改完成";
+                textBox1.Visible = true;
+                textBox2.Visible = true;
+                label3.Visible = false;
+                label7.Visible = false;
+                //重新读取数据
+                SqlConnection SqlCon = login_database();
+
+                String sql = "select * from 用户 where 用户手机号='" + user_id + "'";
+                SqlCommand cmd = new SqlCommand(sql, SqlCon);
+                int num = 0;
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader sdr;
+                sdr = cmd.ExecuteReader();//返回一个数据流
+
+
+                while (sdr.Read())
+                {
+                    textBox1.Text = sdr["昵称"].ToString();
+                    textBox2.Text = sdr["地址名称"].ToString();
+                    num++;
+                }
+                SqlCon.Close();
+            }
+            else
+            {
+                //此时为修改完成状态
+                button3.Text = "修改个人信息";
+                textBox1.Visible = false;
+                textBox2.Visible = false;
+                label3.Visible = true;
+                label7.Visible = true;
+
+            }
+
+            if (!button3.Text.Equals("修改个人信息"))
+            {
+                //重新读取数据
+                SqlConnection SqlCon = login_database();
+                
+                String sql = "select * from 用户 where 用户手机号='" + user_id + "'";
+                SqlCommand cmd = new SqlCommand(sql, SqlCon);
+                int num = 0;
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader sdr;
+                sdr = cmd.ExecuteReader();//返回一个数据流
+
+
+                while (sdr.Read())
+                {
+                    label3.Text = sdr["昵称"].ToString();
+                    label7.Text = sdr["地址名称"].ToString();
+                    num++;
+                }
+                SqlCon.Close();
+            }
+            else
+            {
+                //修改或插入数据
+                if (flag)//登记用户，修改
+                {
+                    SqlConnection SqlCon = login_database();
+                    String sql = "update 用户 set 昵称='" + textBox1.Text + "'" +
+                        ",地址名称='" + textBox2.Text + "' " +
+                        "where 用户手机号='" + user_id + "' ";
+                    SqlCommand cmd = new SqlCommand(sql, SqlCon);
+                    cmd.CommandType = CommandType.Text;
+                    if (cmd.ExecuteNonQuery() != 0)
+                    {
+                        MessageBox.Show("修改成功！");
+                        label3.Text = textBox1.Text;
+                        label7.Text = textBox2.Text;
+                    }
+                    SqlCon.Close();
+
+
+                }
+                else//未登记用户，插入
+                {
+
+                }
+            }
+
             
         }
     }
