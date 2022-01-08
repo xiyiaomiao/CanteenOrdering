@@ -320,7 +320,8 @@ namespace CanteenOrdering
                 if (!x.Equals(""))
                 {
                     MessageBox.Show("你选择了" + x + "行！");
-
+                    订单细节 order_inf = new 订单细节(x);
+                    order_inf.Show();
                 }
 
 
