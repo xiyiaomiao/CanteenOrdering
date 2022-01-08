@@ -290,8 +290,6 @@ namespace CanteenOrdering
         private void button1_Click(object sender, EventArgs e)//点击进行订单筛选
         {
             
-            
-            
             string dt1 = dateTimePicker1.Text; //获取当前日期
         //    label2.Text = dateTimePicker1.Value.ToShortDateString(); //选择成短类型，方便数据库语句
 
@@ -306,11 +304,11 @@ namespace CanteenOrdering
         {
             if (listView1.SelectedItems.Count > 0)
             {
+                string x="";
                 try
                 {
-                    string x = listView1.SelectedItems[0].SubItems[0].Text.ToString();//选中行的第一列的值
-                    string y = listView1.SelectedItems[0].SubItems[1].Text.ToString();//选中行的第二列的值
-                    string z = listView1.SelectedItems[0].SubItems[2].Text.ToString();//选中行的第三列的值
+                    x = listView1.SelectedItems[0].SubItems[0].Text.ToString();//选中行的第一列的值
+                    
                     
                 }
                 catch (Exception e1)
@@ -318,6 +316,14 @@ namespace CanteenOrdering
                     MessageBox.Show(e1.Message);
                 }
                 
+
+                if (!x.Equals(""))
+                {
+                    MessageBox.Show("你选择了" + x + "行！");
+
+                }
+
+
             }
             else
             {
