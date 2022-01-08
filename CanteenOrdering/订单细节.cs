@@ -96,8 +96,26 @@ namespace CanteenOrdering
             }
             int i = 0;
 
+            this.listView1.Columns.Add("商品名称", 120, HorizontalAlignment.Center); //一步添加
+            this.listView1.Columns.Add("数量", 60, HorizontalAlignment.Center); //一步添加
+            this.listView1.Columns.Add("总价", 80, HorizontalAlignment.Center); //一步添加
+
+
             while (num != 0)
             {
+                ListViewItem lvi = new ListViewItem();
+
+                // lvi.ImageIndex = i;     //通过与imageList绑定，显示imageList中第i项图标
+
+                lvi.Text = myTable.Rows[i]["商品名称"].ToString();
+                lvi.SubItems.Add(myTable.Rows[i]["购买数量"].ToString());
+                lvi.SubItems.Add((Convert.ToDecimal(myTable.Rows[i]["购买商品价格"])
+                    * int.Parse(myTable.Rows[i]["购买数量"].ToString())).ToString("0.00"));
+                //Convert.ToDecimal(myTable.Rows[i]["购买商品价格"])
+                //Convert.ToDecimal(sdr["总额"]).ToString("0.00")
+
+                this.listView1.Items.Add(lvi);
+
 
                 i++;
                 num--;
