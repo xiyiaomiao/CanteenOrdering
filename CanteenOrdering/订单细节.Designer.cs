@@ -59,6 +59,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -138,7 +140,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Info;
             this.button1.Font = new System.Drawing.Font("黑体", 15F);
-            this.button1.Location = new System.Drawing.Point(712, 34);
+            this.button1.Location = new System.Drawing.Point(712, 42);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 61);
             this.button1.TabIndex = 2;
@@ -286,6 +288,8 @@
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.label21);
+            this.panel7.Controls.Add(this.label20);
             this.panel7.Controls.Add(this.label17);
             this.panel7.Controls.Add(this.label16);
             this.panel7.Controls.Add(this.label15);
@@ -301,7 +305,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("黑体", 13F);
-            this.label17.Location = new System.Drawing.Point(204, 209);
+            this.label17.Location = new System.Drawing.Point(204, 185);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(87, 22);
             this.label17.TabIndex = 5;
@@ -311,7 +315,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("黑体", 13F, System.Drawing.FontStyle.Bold);
-            this.label16.Location = new System.Drawing.Point(14, 206);
+            this.label16.Location = new System.Drawing.Point(14, 185);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(102, 22);
             this.label16.TabIndex = 4;
@@ -321,7 +325,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("黑体", 13F);
-            this.label15.Location = new System.Drawing.Point(204, 116);
+            this.label15.Location = new System.Drawing.Point(204, 96);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(87, 22);
             this.label15.TabIndex = 3;
@@ -331,7 +335,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("黑体", 13F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(14, 116);
+            this.label14.Location = new System.Drawing.Point(14, 96);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(102, 22);
             this.label14.TabIndex = 2;
@@ -404,6 +408,26 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("黑体", 13F, System.Drawing.FontStyle.Bold);
+            this.label20.Location = new System.Drawing.Point(14, 265);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(102, 22);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "相格编号";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("黑体", 13F);
+            this.label21.Location = new System.Drawing.Point(204, 263);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(87, 22);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "label21";
+            // 
             // 订单细节
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -467,5 +491,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
     }
 }

@@ -121,7 +121,30 @@ namespace CanteenOrdering
                 num--;
             }
 
+            //箱格编号
+            if (label13.Text.Equals("待取餐"))
+            {
+                String sql3 = "Select * from 格子 where 订单编号='" + label2.Text + "' ";
 
+                SqlCommand cmd3 = new SqlCommand(sql3, SqlCon);
+                cmd3.CommandType = CommandType.Text;
+                SqlDataReader sdr3;
+                sdr3 = cmd3.ExecuteReader();//返回一个数据流
+
+                if (sdr3.Read())
+                {
+                    label21.Text = sdr3["快递柜名称"].ToString() + sdr3["格子编号"].ToString();
+                    //Convert.ToDecimal(sdr2["配送费"]).ToString("0.00")
+                }
+                cmd3.Cancel();
+                sdr3.Close();
+
+            }
+            else
+            {
+                label20.Visible = false;
+                label21.Visible = false;
+            }
 
             SqlCon.Close();
 
