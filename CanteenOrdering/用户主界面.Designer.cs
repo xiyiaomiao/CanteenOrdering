@@ -119,6 +119,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "用户主界面";
             this.Text = "用户主界面";
+            this.Load += new System.EventHandler(this.用户主界面_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

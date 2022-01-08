@@ -128,5 +128,10 @@ namespace CanteenOrdering
         {
 
         }
+
+        private void 用户主界面_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
