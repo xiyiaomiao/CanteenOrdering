@@ -13,8 +13,12 @@ namespace CanteenOrdering
 {
     public partial class 用户主界面 : Form
     {
+        FlowLayoutPanel[] flow;
+        PictureBox[] pict;
+        Label[] lab;
         Boolean flag = false;
         String user_id;
+        int id = 0;
         
         public 用户主界面(String userid)
         {
@@ -68,13 +72,10 @@ namespace CanteenOrdering
             DataRow row = myTable.Rows[0];
 
 
-            FlowLayoutPanel[] flow;
-            flow = new FlowLayoutPanel[num];
-            PictureBox[] pict;
-            pict = new PictureBox[num];
-            Label[] lab;
-            lab = new Label[num];
             
+            lab = new Label[num];
+            flow = new FlowLayoutPanel[num];
+            pict = new PictureBox[num];
 
             for (int i = 0; i < num; i++)
             {
@@ -99,10 +100,59 @@ namespace CanteenOrdering
                 flow[i].Controls.Add(pict[i]);
                 flow[i].Controls.Add(lab[i]);
                 flow[i].Visible = true;
+
+                pict[i].Name = "pict" + i.ToString();
+                pict[i].Click += new System.EventHandler(picti_Click);
+
+                lab[i].Name = "lab" + i.ToString();
+                lab[i].Click += new System.EventHandler(labi_Click);
+
+                flow[i].Name = "flow"+i.ToString();
+                flow[i].Click += new System.EventHandler(flowi_Click);
                 flowLayoutPanel1.Controls.Add(flow[i]);
             }
             SqlCon.Close();
         }
+
+        //判断点击的是哪一个
+        private void flowi_Click(object sender, EventArgs e)
+        {
+            
+            var index= (sender as FlowLayoutPanel).Name.Replace("flow","");
+            id = int.Parse(index);
+            enter_order(id);
+            
+        }
+
+        private void picti_Click(object sender, EventArgs e)
+        {
+
+            var index = (sender as PictureBox).Name.Replace("pict", "");
+            id = int.Parse(index);
+            enter_order(id);
+        }
+
+        private void labi_Click(object sender, EventArgs e)
+        {
+
+            var index = (sender as Label).Name.Replace("lab", "");
+            id = int.Parse(index);
+            enter_order(id);
+        }
+
+        public void enter_order(int i)
+        {
+            id = i;
+            if (MessageBox.Show("是否进入"+lab[id].Text.Replace(" ","")+"点餐？", "提示",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+             //   MessageBox.Show(id.ToString());
+                商品点餐界面 f1 = new 商品点餐界面(lab[id].Text.Replace(" ", ""));
+                f1.Show();
+            }
+            
+        }
+
 
         public SqlConnection login_database(){
             string ConnectionString = CommonDate.ConnectionString;
@@ -134,10 +184,6 @@ namespace CanteenOrdering
 
         }
 
-        
-
-
-
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -152,7 +198,6 @@ namespace CanteenOrdering
             DateTime dt = this.dateTimePicker1.Value;//获取DataTimePicker控件的值
                                                      //    MessageBox.Show(dt.ToString("yyyy年MM月dd日dddd"));
 
-
             String sql = "Select * from 订单,购买 where 用户手机号='" + user_id + "' " +
                 "and convert(varchar,下单时间,21) like'%" + dt.ToString("yyyy-MM-dd") + "%' " +
                 "and 订单.订单编号=购买.订单编号";
@@ -160,8 +205,6 @@ namespace CanteenOrdering
 
 
         }
-
-       
 
         private void listView1_Click(object sender, MouseEventArgs e)//选择行事件
         {
@@ -172,21 +215,18 @@ namespace CanteenOrdering
                 {
                     x = listView1.SelectedItems[0].SubItems[0].Text.ToString();//选中行的第一列的值
                     
-                    
                 }
                 catch (Exception e1)
                 {
                     MessageBox.Show(e1.Message);
                 }
                 
-
                 if (!x.Equals(""))
                 {
              //       MessageBox.Show("你选择了" + x + "行！");
                     订单细节 order_inf = new 订单细节(x);
                     order_inf.Show();
                 }
-
 
             }
             else
@@ -234,8 +274,6 @@ namespace CanteenOrdering
 
             this.listView1.SmallImageList = this.imageList1;
             
-
-
             //添加数据项
             this.listView1.BeginUpdate();   //数据更新，UI暂时挂起，直到EndUpdate绘制控件，可以有效避免闪烁并大大提高加载速度
             int i = 0;
@@ -274,7 +312,6 @@ namespace CanteenOrdering
         {
             DateTime dt = DateTime.Now;//获取DataTimePicker控件的值
                                        //    MessageBox.Show(dt.ToString("yyyy年MM月dd日dddd"));
-
 
             String sql = "Select * from 订单,购买 where 用户手机号='" + user_id + "' " +
                 "and convert(varchar,下单时间,21) like'%" + dt.ToString("yyyy-MM") + "%' " +
@@ -321,9 +358,6 @@ namespace CanteenOrdering
             }
             cmd.Cancel();
             sdr.Close();
-
-
-
 
             SqlCon.Close();
         }
@@ -382,7 +416,6 @@ namespace CanteenOrdering
                         label7.Text = textBox2.Text;
                     }
                     SqlCon.Close();
-
 
                 }
                 else//未登记用户，插入
@@ -455,7 +488,6 @@ namespace CanteenOrdering
 
                             }
 
-
                         }
                         else//两次输入的密码不一致请重新输入
                         {
@@ -469,8 +501,6 @@ namespace CanteenOrdering
                 }
 
                 
-
-
                 SqlCon.Close();
                 //修改完成后清空密码框
                 textBox3.Text = "";
@@ -520,7 +550,6 @@ namespace CanteenOrdering
                 }
 
             
-
                 SqlCon.Close();
 
                 //返回登录界面
