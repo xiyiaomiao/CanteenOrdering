@@ -481,6 +481,53 @@ namespace CanteenOrdering
 
         private void button5_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("您确认要注销账号吗？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("开始注销，请稍候！");
+                
+                //登录注册表一定需要删
+                SqlConnection SqlCon = login_database();
+
+                String sql = "delete from 登录注册 where 用户名='" + user_id + "'";
+                SqlCommand cmd = new SqlCommand(sql, SqlCon);
+                cmd.CommandType = CommandType.Text;
+            
+            
+                if (cmd.ExecuteNonQuery() != 0)
+                {
+                    //MessageBox.Show("删除登录注册表成功！");
+                    cmd.Cancel();
+                    if (flag)//用户表也要删除
+                    {
+                        String sql1= "delete from 用户 where 用户手机号='" + user_id + "'";
+                        SqlCommand cmd1 = new SqlCommand(sql1, SqlCon);
+                        cmd1.CommandType = CommandType.Text;
+                        if(cmd1.ExecuteNonQuery() != 0)
+                        {
+                            MessageBox.Show("注销成功！");
+                            //   MessageBox.Show("注销用户表成功！");
+                        }
+                    
+                    }
+                    else
+                    {
+                        MessageBox.Show("注销成功！");
+                        //   MessageBox.Show("只需要注销登录注册表！");
+                    }
+                
+
+                }
+
+            
+
+                SqlCon.Close();
+
+                //返回登录界面
+                this.Close();
+                登录 f1 = new 登录();
+                f1.Show();
+            }
 
         }
     }
