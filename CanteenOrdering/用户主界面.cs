@@ -366,31 +366,6 @@ namespace CanteenOrdering
                 label3.Visible = true;
                 label7.Visible = true;
 
-            }
-
-            if (!button3.Text.Equals("修改个人信息"))
-            {
-                //重新读取数据
-                SqlConnection SqlCon = login_database();
-                
-                String sql = "select * from 用户 where 用户手机号='" + user_id + "'";
-                SqlCommand cmd = new SqlCommand(sql, SqlCon);
-                int num = 0;
-                cmd.CommandType = CommandType.Text;
-                SqlDataReader sdr;
-                sdr = cmd.ExecuteReader();//返回一个数据流
-
-
-                while (sdr.Read())
-                {
-                    label3.Text = sdr["昵称"].ToString();
-                    label7.Text = sdr["地址名称"].ToString();
-                    num++;
-                }
-                SqlCon.Close();
-            }
-            else
-            {
                 //修改或插入数据
                 if (flag)//登记用户，修改
                 {
@@ -414,8 +389,8 @@ namespace CanteenOrdering
                 {
                     SqlConnection SqlCon = login_database();
                     String sql = "insert into 用户 " +
-                        "values('"+ user_id + "','"+textBox1.Text+"'," +
-                        "'"+textBox2.Text+"')";
+                        "values('" + user_id + "','" + textBox1.Text + "'," +
+                        "'" + textBox2.Text + "')";
                     SqlCommand cmd = new SqlCommand(sql, SqlCon);
                     cmd.CommandType = CommandType.Text;
                     if (cmd.ExecuteNonQuery() != 0)
@@ -426,9 +401,7 @@ namespace CanteenOrdering
                     }
                     SqlCon.Close();
                 }
-            }
-
-            
+            }          
         }
 
         private void button4_Click(object sender, EventArgs e)//修改密码
@@ -442,7 +415,7 @@ namespace CanteenOrdering
                 textBox3.Visible = true;
                 textBox4.Visible = true;
                 textBox5.Visible = true;
-
+                
             }
             else
             {
@@ -453,7 +426,62 @@ namespace CanteenOrdering
                 textBox3.Visible = false;
                 textBox4.Visible = false;
                 textBox5.Visible = false;
+
+                //读取数据与输入密码做匹配
+                SqlConnection SqlCon = login_database();
+
+                String sql = "select * from 登录注册 where 用户名='" + user_id + "'";
+                SqlCommand cmd = new SqlCommand(sql, SqlCon);
+
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader sdr;
+                sdr = cmd.ExecuteReader();//返回一个数据流
+
+                if (sdr.Read())//查找到该用户登录注册信息
+                {
+                    if (sdr["密码"].ToString().Equals(textBox3.Text))//首先对原密码进行判断
+                    {
+                        if (textBox4.Text.Equals(textBox5.Text))//进行两次新密码一致性判定
+                        {
+                            cmd.Cancel();
+                            sdr.Close();
+                            String sql1 = "update 登录注册 set 密码='" + textBox4.Text + "'" +
+                            "where 用户名='" + user_id + "' ";
+                            SqlCommand cmd1 = new SqlCommand(sql1, SqlCon);
+                            cmd1.CommandType = CommandType.Text;
+                            if (cmd1.ExecuteNonQuery() != 0)
+                            {
+                                MessageBox.Show("修改成功！");
+
+                            }
+
+
+                        }
+                        else//两次输入的密码不一致请重新输入
+                        {
+                            MessageBox.Show("请保持两次输入的新密码一致！");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("请输入正确的修改前原密码！");
+                    }
+                }
+
+                
+
+
+                SqlCon.Close();
+                //修改完成后清空密码框
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

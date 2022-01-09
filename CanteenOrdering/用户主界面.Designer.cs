@@ -62,6 +62,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -183,6 +184,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.button3);
@@ -201,7 +203,7 @@
             this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button4.Font = new System.Drawing.Font("方正小标宋简体", 18F);
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Location = new System.Drawing.Point(799, 357);
+            this.button4.Location = new System.Drawing.Point(799, 398);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(242, 83);
             this.button4.TabIndex = 3;
@@ -429,6 +431,19 @@
             this.textBox5.Size = new System.Drawing.Size(262, 42);
             this.textBox5.TabIndex = 9;
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Maroon;
+            this.button5.Font = new System.Drawing.Font("宋体", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.Location = new System.Drawing.Point(799, 232);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(242, 96);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "注销账号";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // 用户主界面
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -485,5 +500,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button5;
     }
 }
