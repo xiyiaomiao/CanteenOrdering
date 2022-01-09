@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="商品点餐界面.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="商品点餐界面.Designer.cs">
+      <DependentUpon>商品点餐界面.cs</DependentUpon>
+    </Compile>
     <Compile Include="商家.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +95,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="商品点餐界面.resx">
+      <DependentUpon>商品点餐界面.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="商家.resx">
       <DependentUpon>商家.cs</DependentUpon>
     </EmbeddedResource>

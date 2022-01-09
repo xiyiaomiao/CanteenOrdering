@@ -199,7 +199,45 @@ namespace CanteenOrdering
 
         private void button1_Click(object sender, EventArgs e)//再来一单
         {
+            String order_id="";
+            DialogResult result = MessageBox.Show("您确认要再来一单吗？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                SqlConnection SqlCon = login_database();
+                
+                //生成订单编号
 
+                //找出最后一个最大的订单编号
+                String sql = "select 订单编号 from 订单 order by 订单编号 DESC";
+                SqlCommand cmd = new SqlCommand(sql, SqlCon);
+                cmd.CommandType = CommandType.Text;
+                SqlDataReader sdr;
+                sdr = cmd.ExecuteReader();//返回一个数据流
+                if (sdr.Read())//第一个取到的就是最大值
+                {
+                    order_id = (int.Parse(sdr["订单编号"].ToString())+1).ToString().PadLeft(10,'0');
+                }
+                sdr.Close();
+                cmd.Cancel();
+            //    MessageBox.Show(order_id);
+
+
+
+                SqlCon.Close();
+
+
+
+            }
+
+
+
+            /*
+             DialogResult result = MessageBox.Show("您确认要再来一单吗？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
+            }
+             */
         }
         public SqlConnection login_database()
         {
