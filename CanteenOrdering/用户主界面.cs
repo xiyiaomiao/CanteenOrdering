@@ -114,6 +114,13 @@ namespace CanteenOrdering
 
         public void tab2_generatorFlow()
         {
+            //列表头创建
+            this.listView1.Columns.Add("订单编号", 160, HorizontalAlignment.Center); //一步添加
+            this.listView1.Columns.Add("下单时间", 240, HorizontalAlignment.Center); //一步添加
+            this.listView1.Columns.Add("配送状态", 120, HorizontalAlignment.Center); //一步添加
+            this.listView1.Columns.Add("订单细节", 140, HorizontalAlignment.Center); //一步添加
+            this.listView1.Columns.Add("价格", 120, HorizontalAlignment.Center); //一步添加
+
             dateTimePicker1.Value = DateTime.Now;
             //显示所有订单
             DateTime dt = this.dateTimePicker1.Value;//获取DataTimePicker控件的值
@@ -226,12 +233,7 @@ namespace CanteenOrdering
 
 
             this.listView1.SmallImageList = this.imageList1;
-            //列表头创建
-            this.listView1.Columns.Add("订单编号", 160, HorizontalAlignment.Center); //一步添加
-            this.listView1.Columns.Add("下单时间", 240, HorizontalAlignment.Center); //一步添加
-            this.listView1.Columns.Add("配送状态", 120, HorizontalAlignment.Center); //一步添加
-            this.listView1.Columns.Add("订单细节", 140, HorizontalAlignment.Center); //一步添加
-            this.listView1.Columns.Add("价格", 120, HorizontalAlignment.Center); //一步添加
+            
 
 
             //添加数据项
@@ -285,7 +287,11 @@ namespace CanteenOrdering
         {
             textBox1.Visible = false;//昵称
             textBox2.Visible = false;//地址
-            
+
+            textBox3.Visible = false;//密码框
+            textBox4.Visible = false;
+            textBox5.Visible = false;
+
             label5.Text = user_id;//昵称
 
             SqlConnection SqlCon = login_database();
@@ -425,9 +431,29 @@ namespace CanteenOrdering
             
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)//修改密码
         {
-            panel1.Visible = false;//隐藏面板1，显示另外一个面板
+            if (button4.Text.Equals("修改密码"))
+            {
+                button4.Text = "修改完成";
+                label11.Visible = false;
+                label12.Visible = false;
+                label13.Visible = false;
+                textBox3.Visible = true;
+                textBox4.Visible = true;
+                textBox5.Visible = true;
+
+            }
+            else
+            {
+                button4.Text = "修改密码";
+                label11.Visible = true;
+                label12.Visible = true;
+                label13.Visible = true;
+                textBox3.Visible = false;
+                textBox4.Visible = false;
+                textBox5.Visible = false;
+            }
         }
     }
 }
