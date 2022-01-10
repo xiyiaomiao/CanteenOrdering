@@ -166,6 +166,7 @@ namespace CanteenOrdering
                         lvi.SubItems.Add("1");
                         lvi.SubItems.Add("删除");
                     }
+                    lvi.Tag = id.ToString();
                     this.listView1.Items.Add(lvi);
                     cmd.Cancel();
                     sdr.Close();
@@ -173,30 +174,8 @@ namespace CanteenOrdering
 
                 }
                 
-
-                // lvi.ImageIndex = i;     //通过与imageList绑定，显示imageList中第i项图标
-                /*
-                lvi.Text = myTable.Rows[i]["订单编号"].ToString();
-                lvi.SubItems.Add(myTable.Rows[i]["下单时间"].ToString());
-                lvi.SubItems.Add(myTable.Rows[i]["配送状态"].ToString());
-                lvi.SubItems.Add(myTable.Rows[i]["商品名称"].ToString() + "*" + myTable.Rows[i]["购买数量"].ToString());
-                lvi.SubItems.Add(Convert.ToDecimal(myTable.Rows[i]["总额"]).ToString("0.00"));
-                //Convert.ToDecimal(myTable.Rows[i]["总额"]).ToString("0.00");
-                
-                this.listView1.Items.Add(lvi);
-*/
-                
-                
-
-
+               
                 this.listView1.EndUpdate();  //结束数据处理，UI界面一次性绘制。
-
-
-
-
-
-
-
 
                 MessageBox.Show("已成功加入购物车");
                 
@@ -266,6 +245,36 @@ namespace CanteenOrdering
         private void button1_Click(object sender, EventArgs e)//提交
         {
 
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (this.listView1.SelectedItems.Count == 0 || this.listView1.SelectedItems.Count > 1)
+            {
+                return;
+            }
+
+            string path = this.listView1.SelectedItems[0].Tag.ToString();
+         //   MessageBox.Show(this.listView1.SelectedItems[0].SubItems[2].Text);
+            ListViewItem select_lv = listView1.Items[int.Parse(path)];
+            
+            if (int.Parse(select_lv.SubItems[2].Text) > 1)
+            {
+                select_lv.SubItems[2].Text = (int.Parse(select_lv.SubItems[2].Text) - 1).ToString();
+            }
+            else
+            {
+                select_lv.Remove();
+                //重新修改tag
+                int nRow = 0;
+                ListViewItem select_lvi = new ListViewItem();
+                for (nRow = 0; nRow < listView1.Items.Count; nRow++)
+                {
+                    select_lvi = listView1.Items[nRow];
+                    select_lvi.Tag = nRow.ToString();
+                }
+            }
+            
         }
     }
 }
