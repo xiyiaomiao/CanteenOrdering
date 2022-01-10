@@ -47,8 +47,8 @@ namespace CanteenOrdering.Properties {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
-        ///   重写当前线程的 CurrentUICulture 属性。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture {
@@ -57,6 +57,16 @@ namespace CanteenOrdering.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 泡菜五花肉饭 {
+            get {
+                object obj = ResourceManager.GetObject("泡菜五花肉饭", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -73,9 +83,79 @@ namespace CanteenOrdering.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 炸酱面 {
+            get {
+                object obj = ResourceManager.GetObject("炸酱面", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 牛肉面 {
+            get {
+                object obj = ResourceManager.GetObject("牛肉面", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 番茄鸡蛋面 {
+            get {
+                object obj = ResourceManager.GetObject("番茄鸡蛋面", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 登录界面 {
             get {
                 object obj = ResourceManager.GetObject("登录界面", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 盖饭 {
+            get {
+                object obj = ResourceManager.GetObject("盖饭", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 红烧牛肉饭 {
+            get {
+                object obj = ResourceManager.GetObject("红烧牛肉饭", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 葱油拌面 {
+            get {
+                object obj = ResourceManager.GetObject("葱油拌面", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 葱油拌面1 {
+            get {
+                object obj = ResourceManager.GetObject("葱油拌面1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +196,46 @@ namespace CanteenOrdering.Properties {
         internal static System.Drawing.Bitmap 食堂4 {
             get {
                 object obj = ResourceManager.GetObject("食堂4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 香菇卤肉饭 {
+            get {
+                object obj = ResourceManager.GetObject("香菇卤肉饭", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 鸡丝面 {
+            get {
+                object obj = ResourceManager.GetObject("鸡丝面", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 黄焖排骨饭 {
+            get {
+                object obj = ResourceManager.GetObject("黄焖排骨饭", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 黄焖鸡米饭 {
+            get {
+                object obj = ResourceManager.GetObject("黄焖鸡米饭", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

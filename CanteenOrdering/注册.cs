@@ -84,15 +84,18 @@ namespace CanteenOrdering
                     else {
                         SqlConnection SqlCon1 = new SqlConnection(ConnectionString);
                         SqlCon1.Open(); //打开数据库
-                    
                         string sql = "insert into 登录注册(用户名,密码,类别)values('" + userid + "', '" + password + "', '" + classifi + "')";
+                     
                         SqlCommand cmd = new SqlCommand(sql, SqlCon1);
+                        
                         SqlDataReader sdr1;
                         sdr1 = cmd.ExecuteReader();
                         MessageBox.Show("注册成功", "提示");
+                        SqlCon1.Close();
 
 
                     }
+                    SqlCon.Close();
                 }
 
 

@@ -71,7 +71,6 @@
             this.tabPage1.Size = new System.Drawing.Size(1063, 569);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "点餐";
-    //        this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -93,7 +92,7 @@
             this.label1.Size = new System.Drawing.Size(301, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "欢迎！用户xxx进行点餐！";
-     //       this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tabPage2
             // 
@@ -140,6 +139,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_Click);
             // 
             // tabPage3
@@ -152,7 +152,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "个人资料";
             this.tabPage3.UseVisualStyleBackColor = true;
-    //        this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // imageList1
             // 

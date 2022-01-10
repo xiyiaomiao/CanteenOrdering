@@ -13,9 +13,12 @@ namespace CanteenOrdering
 {
     public partial class 登录 : Form
     {
+ 
+        
         public 登录()
         {
             InitializeComponent();
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -66,6 +69,13 @@ namespace CanteenOrdering
                             用户主界面 useruse = new 用户主界面(userid);
                             useruse.Show();
                             break;
+                        case "商家":
+                            this.Hide();
+                            商家 useruse1 = new 商家(userid);
+                            useruse1.Show();
+                            break;
+
+
                     }
                     
 
@@ -75,6 +85,9 @@ namespace CanteenOrdering
                     MessageBox.Show("用户名或密码错误", "提示");
                     return;
                 }
+                cmd.Cancel();
+                sdr.Close();
+                SqlCon.Close();
             }
            
         }
