@@ -244,7 +244,31 @@ namespace CanteenOrdering
 
         private void button1_Click(object sender, EventArgs e)//提交
         {
+            //生成订单编号
+            SqlConnection SqlCon = login_database();
+            String order_id = "";
+            //找出最后一个最大的订单编号
+            String sql = "select 订单编号 from 订单 order by 订单编号 DESC";
+            SqlCommand cmd = new SqlCommand(sql, SqlCon);
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader sdr;
+            sdr = cmd.ExecuteReader();//返回一个数据流
+            if (sdr.Read())//第一个取到的就是最大值
+            {
+                order_id = (int.Parse(sdr["订单编号"].ToString()) + 1).ToString().PadLeft(10, '0');
+            }
+            sdr.Close();
+            cmd.Cancel();
 
+            //提交订单表
+            String sql2 = "insert 订单(订单编号,用户手机号,配送状态,下单时间,配送时间,店铺名称,总额,地址名称)" +
+                "values(,,,,,,)";
+
+            //提交购买表
+
+
+
+            SqlCon.Close();
         }
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
