@@ -98,6 +98,10 @@ namespace CanteenOrdering
             DataSet myDataSet = new DataSet();      // 创建DataSet
             myDataAdapter.Fill(myDataSet, "商品");	// 将返回的数据集作为“表”填入DataSet中，表名可以与数据库真实的表名不同，并不影响后续的增、删、改等操作
             DataTable myTable = myDataSet.Tables["商品"];
+            if (myTable.Rows.Count == 0)
+            {
+                return;
+            }
             DataRow row = myTable.Rows[0];
 
 

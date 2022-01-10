@@ -145,6 +145,7 @@
     <None Include="Resources\牛肉面.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\空白.jpg" />
     <None Include="Resources\鸡丝面.png" />
   </ItemGroup>
   <ItemGroup>
