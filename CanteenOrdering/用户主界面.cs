@@ -147,7 +147,7 @@ namespace CanteenOrdering
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
              //   MessageBox.Show(id.ToString());
-                商品点餐界面 f1 = new 商品点餐界面(lab[id].Text.Replace(" ", ""));
+                商品点餐界面 f1 = new 商品点餐界面(lab[id].Text.Replace(" ", ""),user_id,"");
                 f1.Show();
             }
             
@@ -279,7 +279,22 @@ namespace CanteenOrdering
             int i = 0;
             while (num != 0)
             {
-
+                //添加前先检查有无重复项
+                if (i != 0)
+                {
+                    int j;
+                    for(j = 0; j < listView1.Items.Count; j++)
+                    {
+                        if (listView1.Items[j].Text.Equals(myTable.Rows[i]["订单编号"].ToString()))
+                        {
+                            listView1.Items[j].SubItems[3].Text = listView1.Items[j].SubItems[3].Text + "等";
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
                 ListViewItem lvi = new ListViewItem();
 
                 // lvi.ImageIndex = i;     //通过与imageList绑定，显示imageList中第i项图标
@@ -295,6 +310,22 @@ namespace CanteenOrdering
 
                 num--;
                 i++;
+            }
+
+            //移除重复数据项
+            int j1;
+            for (j1 = 0; j1 < listView1.Items.Count; j1++)
+            {
+                if (j1 > 0)
+                {
+                    if (listView1.Items[j1].Text.Equals(listView1.Items[j1 - 1].Text))
+                    {
+                        listView1.Items[j1].Remove();
+
+                    }
+                }
+                
+
             }
 
 
