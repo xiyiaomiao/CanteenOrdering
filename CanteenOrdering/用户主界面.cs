@@ -147,7 +147,7 @@ namespace CanteenOrdering
                 MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
              //   MessageBox.Show(id.ToString());
-                商品点餐界面 f1 = new 商品点餐界面(lab[id].Text.Replace(" ", ""),user_id);
+                商品点餐界面 f1 = new 商品点餐界面(lab[id].Text.Replace(" ", ""),user_id,"");
                 f1.Show();
             }
             

@@ -20,14 +20,61 @@ namespace CanteenOrdering
         int id = 0;
         String shop_name = "";
         String user = "";
-        public 商品点餐界面(String shop,String user_id)
+        String old_order = "";
+        public 商品点餐界面(String shop,String user_id,String old)
         {
             InitializeComponent();
             shop_name = shop;
             user = user_id;
+            old_order = old;
             tab1_ini();
             tab2_ini();
             tab3_ini();
+            if (!old_order.Equals(""))
+            {
+                order_again();
+            }
+        }
+
+        public void order_again()
+        {
+            SqlConnection SqlCon = login_database();
+            string sql = "Select * from 购买 where 订单编号='" + old_order + "'";
+            SqlCommand cmd = new SqlCommand(sql, SqlCon);
+            int num = 0;
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader sdr;
+            sdr = cmd.ExecuteReader();//返回一个数据流
+
+            
+
+            while (sdr.Read())
+            {
+                ListViewItem lvi = new ListViewItem();
+                lvi.Text = sdr["商品名称"].ToString();
+                lvi.SubItems.Add(Convert.ToDecimal(sdr["购买商品价格"]).ToString("0.00"));
+                lvi.SubItems.Add(sdr["购买数量"].ToString());
+                lvi.SubItems.Add("删除");
+                lvi.Tag = id.ToString();
+                this.listView1.Items.Add(lvi);
+                num++;
+            }
+
+
+            cmd.Cancel();
+            sdr.Close();
+            SqlCon.Close();
+
+            int nRow = 0;
+            ListViewItem select1_lvi = new ListViewItem();
+            decimal money = Convert.ToDecimal(label11.Text.Replace("¥", ""));
+            for (nRow = 0; nRow < listView1.Items.Count; nRow++)
+            {
+                select1_lvi = listView1.Items[nRow];
+                money += Convert.ToDecimal(select1_lvi.SubItems[1].Text) * int.Parse(select1_lvi.SubItems[2].Text);
+            }
+            label15.Text = money.ToString("0.00");
+
         }
         public void tab1_ini()//商品列表
         {
@@ -210,7 +257,7 @@ namespace CanteenOrdering
         public void tab3_ini()
         {
             label1.Text = shop_name;
-            label15.Text = label11.Text.Replace("¥", "");
+            
 
             SqlConnection SqlCon = login_database();
             string sql = "Select * from 店铺 " +
@@ -235,6 +282,7 @@ namespace CanteenOrdering
                 //Convert.ToDecimal(sdr["配送费"]).ToString("0.00");
                 num++;
             }
+            label15.Text = label11.Text.Replace("¥", "");
             cmd.Cancel();
             sdr.Close();
             SqlCon.Close();
@@ -253,6 +301,7 @@ namespace CanteenOrdering
         private void button2_Click(object sender, EventArgs e)//清空购物车
         {
             this.listView1.Items.Clear();  //只移除所有的项
+            label15.Text = label11.Text.Replace("¥", "");
         }
 
         private void button1_Click(object sender, EventArgs e)//提交

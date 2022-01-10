@@ -204,23 +204,30 @@ namespace CanteenOrdering
             if (result == DialogResult.Yes)
             {
                 SqlConnection SqlCon = login_database();
-                
-                //生成订单编号
 
+                //生成订单编号
+                String old_order = "";
+                String user_id = "";
                 //找出最后一个最大的订单编号
-                String sql = "select 订单编号 from 订单 order by 订单编号 DESC";
+                String sql = "select * from 订单 order by 订单编号 DESC";
                 SqlCommand cmd = new SqlCommand(sql, SqlCon);
                 cmd.CommandType = CommandType.Text;
                 SqlDataReader sdr;
                 sdr = cmd.ExecuteReader();//返回一个数据流
                 if (sdr.Read())//第一个取到的就是最大值
                 {
-                    order_id = (int.Parse(sdr["订单编号"].ToString())+1).ToString().PadLeft(10,'0');
+                    old_order = sdr["订单编号"].ToString();
+                    order_id = (int.Parse(old_order)+1).ToString().PadLeft(10,'0');
+                    user_id = sdr["用户手机号"].ToString();
                 }
                 sdr.Close();
                 cmd.Cancel();
-            //    MessageBox.Show(order_id);
+            //    MessageBox.Show(order_id+" "+user_id);
 
+                
+
+                商品点餐界面 f1 = new 商品点餐界面(label3.Text,user_id,old_order);
+                f1.Show();
 
 
                 SqlCon.Close();
