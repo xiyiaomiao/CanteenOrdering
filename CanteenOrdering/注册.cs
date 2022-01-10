@@ -14,9 +14,13 @@ namespace CanteenOrdering
 {
     public partial class 注册 : Form
     {
-        public 注册()
+        登录 f2;
+        public 注册(登录 f1)
         {
             InitializeComponent();
+            f2 = f1;
+
+
         }
 
         private void 注册_Load(object sender, EventArgs e)
@@ -41,10 +45,9 @@ namespace CanteenOrdering
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            登录 f2 = new 登录();
-            f2.ShowDialog();
-            this.Visible = true;
+            this.Visible = false;            
+            f2.Visible=true;
+         //   this.Visible = true;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -28,10 +28,11 @@ namespace CanteenOrdering
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             this.Visible = false;
-            注册 f2 = new 注册();
+            注册 f2 = new 注册(this);
             f2.ShowDialog();
-            this.Visible = true;
+        //    this.Visible = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
