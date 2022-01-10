@@ -67,7 +67,8 @@ namespace CanteenOrdering
 
             SqlDataAdapter myDataAdapter = new SqlDataAdapter(sql, SqlCon);
             DataSet myDataSet = new DataSet();      // 创建DataSet
-            myDataAdapter.Fill(myDataSet, "店铺");	// 将返回的数据集作为“表”填入DataSet中，表名可以与数据库真实的表名不同，并不影响后续的增、删、改等操作
+            myDataAdapter.Fill(myDataSet, "店铺");	
+            // 将返回的数据集作为“表”填入DataSet中，表名可以与数据库真实的表名不同，并不影响后续的增、删、改等操作
             DataTable myTable = myDataSet.Tables["店铺"];
             DataRow row = myTable.Rows[0];
 
@@ -80,8 +81,23 @@ namespace CanteenOrdering
             for (int i = 0; i < num; i++)
             {
                 pict[i] = new System.Windows.Forms.PictureBox();
+                try
+                {
+                    pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\" + myTable.Rows[i]["店铺名称"].ToString() + ".jpg");
+                }
+                catch
+                {
+                    pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\" + "空白" + ".jpg");
+                    continue;
+                }
+
+                
                 pict[i].SizeMode = PictureBoxSizeMode.Zoom;
-                pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\"+myTable.Rows[i]["店铺名称"].ToString()+".jpg");
+
+                
+
+                
+                
                 pict[i].Size = new Size(200, 100);//设置图片大小
                 pict[i].BorderStyle = BorderStyle.None;//取消边框
                 pict[i].Image.Tag = i;
