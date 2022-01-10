@@ -172,4 +172,13 @@
   <data name="盖饭" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\盖饭.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="七食堂" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\七食堂.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="三食堂" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\三食堂.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="六食堂" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\六食堂.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
