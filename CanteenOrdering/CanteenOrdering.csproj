@@ -46,14 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-
     <Compile Include="商品点餐界面.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="商品点餐界面.Designer.cs">
       <DependentUpon>商品点餐界面.cs</DependentUpon>
     </Compile>
-
     <Compile Include="商家.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +173,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\盖饭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\一食堂.jpg" />
+    <Content Include="Resources\二食堂.jpg" />
+    <Content Include="Resources\火腿.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -111,7 +111,7 @@ namespace CanteenOrdering
                 pict[i] = new System.Windows.Forms.PictureBox();
                 pict[i].SizeMode = PictureBoxSizeMode.Zoom;
 
-                pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\" + myTable.Rows[i]["店铺名称"].ToString() + ".jpg");
+                pict[i].Image = System.Drawing.Image.FromFile(@"..\\..\\Resources\\" + myTable.Rows[i]["商品名称"].ToString() + ".png");
 
                 pict[i].Size = new Size(200, 100);//设置图片大小
                 pict[i].BorderStyle = BorderStyle.None;//取消边框
