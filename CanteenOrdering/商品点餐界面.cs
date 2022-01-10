@@ -19,10 +19,12 @@ namespace CanteenOrdering
         Button[] but;
         int id = 0;
         String shop_name = "";
-        public 商品点餐界面(String shop)
+        String user = "";
+        public 商品点餐界面(String shop,String user_id)
         {
             InitializeComponent();
             shop_name = shop;
+            user = user_id;
             tab1_ini();
             tab2_ini();
             tab3_ini();
@@ -156,7 +158,7 @@ namespace CanteenOrdering
                         "where 店铺名称='" + shop_name + "'" +
                         "and 商品名称='"+select_good+"'";
                     SqlCommand cmd = new SqlCommand(sql, SqlCon);
-                    int num = 0;
+                    
                     cmd.CommandType = CommandType.Text;
                     SqlDataReader sdr;
                     sdr = cmd.ExecuteReader();//返回一个数据流
@@ -172,13 +174,23 @@ namespace CanteenOrdering
                     sdr.Close();
                     SqlCon.Close();
 
+                    
+
                 }
                 
                
                 this.listView1.EndUpdate();  //结束数据处理，UI界面一次性绘制。
 
                 MessageBox.Show("已成功加入购物车");
-                
+
+                decimal money = Convert.ToDecimal(label11.Text.Replace("¥", ""));
+                for (nRow = 0; nRow < listView1.Items.Count; nRow++)
+                {
+                    select_lvi = listView1.Items[nRow];
+                    money += Convert.ToDecimal(select_lvi.SubItems[1].Text)* int.Parse(select_lvi.SubItems[2].Text);
+                }
+                label15.Text = money.ToString("0.00");
+
             }
 
             
@@ -192,12 +204,13 @@ namespace CanteenOrdering
 
         public void tab2_ini()//购物车
         {
-            SqlConnection SqlCon = login_database();
+            
         }
 
         public void tab3_ini()
         {
             label1.Text = shop_name;
+            label15.Text = label11.Text.Replace("¥", "");
 
             SqlConnection SqlCon = login_database();
             string sql = "Select * from 店铺 " +
@@ -244,6 +257,15 @@ namespace CanteenOrdering
 
         private void button1_Click(object sender, EventArgs e)//提交
         {
+            if (listView1.Items.Count == 0)
+            {
+                MessageBox.Show("您尚未选择购买商品，请先加入购物车！");
+                return;
+            }else if (comboBox1.Text.Equals(""))
+            {
+                MessageBox.Show("请选择送达时间！");
+                return;
+            }
             //生成订单编号
             SqlConnection SqlCon = login_database();
             String order_id = "";
@@ -260,14 +282,61 @@ namespace CanteenOrdering
             sdr.Close();
             cmd.Cancel();
 
+            //地址
+            String sql1 = "select * from 用户 where 用户手机号='" + user + "'";
+            SqlCommand cmd1 = new SqlCommand(sql1, SqlCon);
+            cmd1.CommandType = CommandType.Text;
+            SqlDataReader sdr1;
+            sdr1 = cmd1.ExecuteReader();//返回一个数据流
+            String addr = "";
+            while (sdr1.Read())
+            {
+                addr = sdr1["地址名称"].ToString();
+            }
+            sdr1.Close();
+            cmd1.Cancel();
+            
+
+
             //提交订单表
-            String sql2 = "insert 订单(订单编号,用户手机号,配送状态,下单时间,配送时间,店铺名称,总额,地址名称)" +
-                "values(,,,,,,)";
+            String sql2 = "insert into 订单(订单编号,用户手机号,配送状态," +
+                "下单时间,配送时间,店铺名称,总额,地址名称)" +
+                "values('"+order_id+"','"+user+"','待配货'," +
+                "'"+DateTime.Now+"','"+comboBox1.Text+"','"+shop_name+"','"+label15.Text+"','"+addr+"')";
+            SqlCommand cmd2 = new SqlCommand(sql2, SqlCon);
+            cmd2.CommandType = CommandType.Text;
 
+            if (cmd2.ExecuteNonQuery() != 0)
+            {
+             //   MessageBox.Show("插入订单表成功！");
+                
+            }
             //提交购买表
+            int nRow = 0;
+            ListViewItem select_lvi = new ListViewItem();
+            for (nRow = 0; nRow < listView1.Items.Count; nRow++)
+            {
+                select_lvi = listView1.Items[nRow];
+                String sql3 = "insert into 购买 values('"+order_id+"','"+select_lvi.Text+"'," +
+                    "'"+select_lvi.SubItems[2].Text+"','"+select_lvi.SubItems[1].Text+"')";
+                SqlCommand cmd3 = new SqlCommand(sql3, SqlCon);
+                cmd3.CommandType = CommandType.Text;
+
+                if (cmd3.ExecuteNonQuery() != 0)
+                {
+                 //   MessageBox.Show("插入购买成功！");
+
+                }
+
+            }
+            
 
 
 
+            //提交后清空
+            this.listView1.Items.Clear();
+            comboBox1.Text = "";
+            label15.Text = label11.Text;
             SqlCon.Close();
         }
 
@@ -281,7 +350,7 @@ namespace CanteenOrdering
             string path = this.listView1.SelectedItems[0].Tag.ToString();
          //   MessageBox.Show(this.listView1.SelectedItems[0].SubItems[2].Text);
             ListViewItem select_lv = listView1.Items[int.Parse(path)];
-            
+            int nRow = 0;
             if (int.Parse(select_lv.SubItems[2].Text) > 1)
             {
                 select_lv.SubItems[2].Text = (int.Parse(select_lv.SubItems[2].Text) - 1).ToString();
@@ -290,7 +359,7 @@ namespace CanteenOrdering
             {
                 select_lv.Remove();
                 //重新修改tag
-                int nRow = 0;
+                
                 ListViewItem select_lvi = new ListViewItem();
                 for (nRow = 0; nRow < listView1.Items.Count; nRow++)
                 {
@@ -298,7 +367,16 @@ namespace CanteenOrdering
                     select_lvi.Tag = nRow.ToString();
                 }
             }
-            
+
+            ListViewItem select1_lvi = new ListViewItem();
+            decimal money = Convert.ToDecimal(label11.Text.Replace("¥", ""));
+            for (nRow = 0; nRow < listView1.Items.Count; nRow++)
+            {
+                select1_lvi = listView1.Items[nRow];
+                money += Convert.ToDecimal(select1_lvi.SubItems[1].Text) * int.Parse(select1_lvi.SubItems[2].Text);
+            }
+            label15.Text = money.ToString("0.00");
+
         }
     }
 }
