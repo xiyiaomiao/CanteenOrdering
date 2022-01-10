@@ -46,12 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+
     <Compile Include="商品点餐界面.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="商品点餐界面.Designer.cs">
       <DependentUpon>商品点餐界面.cs</DependentUpon>
     </Compile>
+
     <Compile Include="商家.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +142,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\牛肉面.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\鸡丝面.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\葱油拌面.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\番茄鸡蛋面.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\炸酱面.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\红烧牛肉饭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\黄焖鸡米饭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\黄焖排骨饭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\泡菜五花肉饭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\香菇卤肉饭.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\盖饭.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
