@@ -122,11 +122,7 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "欢迎！用户xxx进行点餐！";
 
-<<<<<<< HEAD
             this.label1.Click += new System.EventHandler(this.label1_Click);
-
-=======
->>>>>>> c95724912711308825b47bb6f9895d97a17ddc37
 
             // 
             // tabPage2
@@ -205,12 +201,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "个人资料";
             this.tabPage3.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
-   // 
-=======
 
-            // 
->>>>>>> c95724912711308825b47bb6f9895d97a17ddc37
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;

@@ -984,7 +984,7 @@ namespace CanteenOrdering
             //string name = this.textBox1.Text;
             string name = this.textBox1.Text;
 
-            String sql1 = "Select * from 订单,购买 where 订单.店铺名称='" + name + "' and 订单.配送状态 = '待配送'" +
+            String sql1 = "Select * from 订单,购买 where 订单.店铺名称='" + name + "' and 订单.配送状态 = '待配货'" +
                 "and 订单.订单编号=购买.订单编号";
 
             SqlCommand cmd = new SqlCommand(sql1, SqlCon);
@@ -1073,7 +1073,7 @@ namespace CanteenOrdering
             string name = this.textBox1.Text;
 
 
-            String sql1 = "Select * from 订单,购买 where 店铺名称='" + name + "'and 订单.配送状态 ='待配送' " +
+            String sql1 = "Select * from 订单,购买 where 店铺名称='" + name + "'and 订单.配送状态 ='待配货' " +
                 "and 订单.订单编号=购买.订单编号";
 
 
@@ -1094,8 +1094,8 @@ namespace CanteenOrdering
 
             SqlDataAdapter myDataAdapter1 = new SqlDataAdapter(sql1, SqlCon);
             DataSet myDataSet1 = new DataSet();      // 创建DataSet
-            myDataAdapter1.Fill(myDataSet1, "待取餐订单信息");	// 将返回的数据集作为“表”填入DataSet中，表名可以与数据库真实的表名不同，并不影响后续的增、删、改等操作
-            DataTable myTable = myDataSet1.Tables["待取餐订单信息"];
+            myDataAdapter1.Fill(myDataSet1, "待配送订单信息");	// 将返回的数据集作为“表”填入DataSet中，表名可以与数据库真实的表名不同，并不影响后续的增、删、改等操作
+            DataTable myTable = myDataSet1.Tables["待配送订单信息"];
             if (num > 0)
             {
                 DataRow row1 = myTable.Rows[0];
@@ -1465,6 +1465,54 @@ namespace CanteenOrdering
                 }
             }
             
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            string name = this.textBox1.Text;
+            SqlConnection SqlCon2 = login_database();
+            String sql2 = "update 订单 set 配送状态='待配送'where 店铺名称='" + name + "'and 配送状态='待配货'";
+            SqlCommand cmd2 = new SqlCommand(sql2, SqlCon2);
+            cmd2.CommandType = CommandType.Text;
+            SqlDataReader sdr2;
+            sdr2 = cmd2.ExecuteReader();//返回一个数据流
+            sdr2.Close();
+            cmd2.Cancel();
+            SqlCon2.Close();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            string name = this.textBox1.Text;
+            SqlConnection SqlCon2 = login_database();
+            String sql2 = "update 订单 set 配送状态='待送达'where 店铺名称='" + name + "'and 配送状态='待配送'";
+            SqlCommand cmd2 = new SqlCommand(sql2, SqlCon2);
+            cmd2.CommandType = CommandType.Text;
+            SqlDataReader sdr2;
+            sdr2 = cmd2.ExecuteReader();//返回一个数据流
+            sdr2.Close();
+            cmd2.Cancel();
+            SqlCon2.Close();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            tab2_generatorFlow();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            tab7_generatorFlow();
+        }
+
+        private void button7_Click_1(object sender, EventArgs e)
+        {
+            tab6_generatorFlow();
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            tab3_generatorFlow();
         }
     }
 }
