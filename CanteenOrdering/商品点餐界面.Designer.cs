@@ -141,6 +141,7 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
@@ -151,6 +152,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseDoubleClick);
             // 
             // columnHeader1
             // 
@@ -171,6 +173,7 @@
             // 
             // columnHeader4
             // 
+            this.columnHeader4.Tag = "option";
             this.columnHeader4.Text = "操作";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 180;
