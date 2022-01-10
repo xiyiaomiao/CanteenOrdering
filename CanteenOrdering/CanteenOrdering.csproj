@@ -176,7 +176,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\一食堂.jpg" />
+    <None Include="Resources\三食堂.jpg" />
+    <None Include="Resources\七食堂.jpg" />
     <Content Include="Resources\二食堂.jpg" />
+    <None Include="Resources\六食堂.jpg" />
     <Content Include="Resources\火腿.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
