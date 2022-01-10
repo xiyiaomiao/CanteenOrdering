@@ -1222,6 +1222,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("牛肉面上架成功！");
                 }
             }
             if (checkBox2.Checked)
@@ -1243,6 +1244,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("鸡丝面上架成功！");
                 }
             }
 
@@ -1265,6 +1267,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("番茄鸡蛋面上架成功！");
                 }
             }
 
@@ -1288,29 +1291,10 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("葱油拌面上架成功！");
                 }
             }
-            if (checkBox1.Checked)
-            {
-
-                if (this.textBox6.Text.Equals(""))
-                {
-                    MessageBox.Show("请输入牛肉面价格！");
-                }
-                else
-                {
-                    decimal price2 = Convert.ToDecimal(this.textBox6.Text.Trim());
-                    SqlConnection SqlCon2 = login_database();
-                    String sql2 = "update 商品 set 状态='有',价格='" + price2 + "' where 店铺名称='" + name + "'and 商品名称='牛肉面'";
-                    SqlCommand cmd2 = new SqlCommand(sql2, SqlCon2);
-                    cmd2.CommandType = CommandType.Text;
-                    SqlDataReader sdr2;
-                    sdr2 = cmd2.ExecuteReader();//返回一个数据流
-                    sdr2.Close();
-                    cmd2.Cancel();
-                    SqlCon2.Close();
-                }
-            }
+           
             if (checkBox5.Checked)
             {
 
@@ -1330,6 +1314,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("炸酱面上架成功！");
                 }
             }
             if (checkBox6.Checked)
@@ -1351,6 +1336,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("红烧牛肉饭上架成功！");
                 }
             }
             if (checkBox7.Checked)
@@ -1372,6 +1358,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("黄焖鸡米饭上架成功！");
                 }
             }
             if (checkBox8.Checked)
@@ -1393,6 +1380,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("黄焖排骨饭上架成功！");
                 }
             }
             if (checkBox9.Checked)
@@ -1414,6 +1402,7 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("泡菜五花肉饭上架成功！");
                 }
             }
             if (checkBox10.Checked)
@@ -1435,9 +1424,10 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("香菇卤肉饭上架成功！");
                 }
             }
-            MessageBox.Show("上架成功！");
+            
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -1471,9 +1461,10 @@ namespace CanteenOrdering
                     sdr2.Close();
                     cmd2.Cancel();
                     SqlCon2.Close();
+                    MessageBox.Show("盖饭上架成功！");
                 }
             }
-            MessageBox.Show("上架成功！");
+            
         }
     }
 }
