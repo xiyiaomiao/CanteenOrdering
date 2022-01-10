@@ -121,10 +121,8 @@
             this.label1.Size = new System.Drawing.Size(301, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "欢迎！用户xxx进行点餐！";
-<<<<<<< HEAD
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-=======
->>>>>>> aaf0cf7afef3fece4da1eaba72967aefbe90aefb
+
+
             // 
             // tabPage2
             // 
@@ -202,8 +200,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "个人资料";
             this.tabPage3.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
-=======
+
             // 
             // button4
             // 
@@ -351,7 +348,7 @@
             this.label2.Size = new System.Drawing.Size(75, 30);
             this.label2.TabIndex = 0;
             this.label2.Text = "昵称";
->>>>>>> aaf0cf7afef3fece4da1eaba72967aefbe90aefb
+
             // 
             // imageList1
             // 
