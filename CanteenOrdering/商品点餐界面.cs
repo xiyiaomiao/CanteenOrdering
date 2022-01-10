@@ -55,7 +55,7 @@ namespace CanteenOrdering
                 lvi.SubItems.Add(Convert.ToDecimal(sdr["购买商品价格"]).ToString("0.00"));
                 lvi.SubItems.Add(sdr["购买数量"].ToString());
                 lvi.SubItems.Add("删除");
-                lvi.Tag = id.ToString();
+                lvi.Tag = num.ToString();
                 this.listView1.Items.Add(lvi);
                 num++;
             }
@@ -219,7 +219,7 @@ namespace CanteenOrdering
                         lvi.SubItems.Add("1");
                         lvi.SubItems.Add("删除");
                     }
-                    lvi.Tag = id.ToString();
+                    lvi.Tag = listView1.Items.Count.ToString();
                     this.listView1.Items.Add(lvi);
                     cmd.Cancel();
                     sdr.Close();
@@ -384,8 +384,6 @@ namespace CanteenOrdering
             }
             
 
-
-
             //提交后清空
             this.listView1.Items.Clear();
             comboBox1.Text = "";
@@ -401,9 +399,10 @@ namespace CanteenOrdering
             }
 
             string path = this.listView1.SelectedItems[0].Tag.ToString();
-         //   MessageBox.Show(this.listView1.SelectedItems[0].SubItems[2].Text);
+         //   MessageBox.Show(path);
             ListViewItem select_lv = listView1.Items[int.Parse(path)];
             int nRow = 0;
+            
             if (int.Parse(select_lv.SubItems[2].Text) > 1)
             {
                 select_lv.SubItems[2].Text = (int.Parse(select_lv.SubItems[2].Text) - 1).ToString();
@@ -420,6 +419,7 @@ namespace CanteenOrdering
                     select_lvi.Tag = nRow.ToString();
                 }
             }
+            
 
             ListViewItem select1_lvi = new ListViewItem();
             decimal money = Convert.ToDecimal(label11.Text.Replace("¥", ""));
