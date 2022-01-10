@@ -123,10 +123,13 @@
             this.label1.Text = "欢迎！用户xxx进行点餐！";
 
 
+<<<<<<< HEAD
 
             this.label1.Click += new System.EventHandler(this.label1_Click);
 
 
+=======
+>>>>>>> 73d21e551e182bd8c6c7c611e73c9b3097a91891
             // 
             // tabPage2
             // 
