@@ -32,6 +32,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -91,7 +92,6 @@
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -100,6 +100,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.listView1);
             this.tabPage2.Font = new System.Drawing.Font("方正小标宋简体", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -111,14 +112,27 @@
             this.tabPage2.Text = "购物车";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.GrayText;
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(580, 403);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(354, 55);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "清空";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(293, 406);
+            this.button1.Location = new System.Drawing.Point(18, 412);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(307, 46);
             this.button1.TabIndex = 1;
             this.button1.Text = "提交";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // listView1
             // 
@@ -141,25 +155,25 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "商品名称";
-            this.columnHeader1.Width = 268;
+            this.columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "单价";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 251;
+            this.columnHeader2.Width = 160;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "数量";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 213;
+            this.columnHeader3.Width = 160;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "操作";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 209;
+            this.columnHeader4.Width = 180;
             // 
             // tabPage3
             // 
@@ -177,9 +191,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(18, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 15);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(106, 57);
+            this.pictureBox1.Size = new System.Drawing.Size(146, 85);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -195,9 +209,9 @@
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(18, 88);
+            this.panel2.Location = new System.Drawing.Point(18, 106);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(949, 390);
+            this.panel2.Size = new System.Drawing.Size(949, 372);
             this.panel2.TabIndex = 0;
             // 
             // label9
@@ -364,5 +378,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button2;
     }
 }

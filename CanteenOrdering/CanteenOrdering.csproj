@@ -136,12 +136,6 @@
     <None Include="Resources\Image1.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\一食堂.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\二食堂.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\3.jpg" />
   </ItemGroup>
   <ItemGroup>
