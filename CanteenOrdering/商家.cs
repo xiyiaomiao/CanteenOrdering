@@ -1515,6 +1515,18 @@ namespace CanteenOrdering
             tab3_generatorFlow();
         }
 
-        
+       /* private void button12_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            if (op.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox12.Image = Image.FromFile(op.FileName);
+            }
+        }*/
+
+        private void 商家_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

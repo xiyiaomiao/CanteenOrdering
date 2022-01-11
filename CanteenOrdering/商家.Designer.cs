@@ -1038,6 +1038,7 @@ namespace CanteenOrdering
             this.Controls.Add(this.tabControl1);
             this.Name = "商家";
             this.Text = "商家";
+            this.Load += new System.EventHandler(this.商家_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
