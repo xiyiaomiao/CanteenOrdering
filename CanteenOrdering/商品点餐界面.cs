@@ -100,6 +100,16 @@ namespace CanteenOrdering
             DataTable myTable = myDataSet.Tables["商品"];
             if (myTable.Rows.Count == 0)
             {
+
+                Label lab = new System.Windows.Forms.Label();
+                lab.Text = "暂无上架商品。";
+                lab.Visible = true;
+                lab.AutoSize = true;
+                lab.Font = new System.Drawing.Font("宋体", 20F,
+                    System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                flowLayoutPanel1.Controls.Add(lab);
+                MessageBox.Show("本店暂未营业，敬请期待！");
+                
                 return;
             }
             DataRow row = myTable.Rows[0];
