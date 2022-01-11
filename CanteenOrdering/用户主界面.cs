@@ -616,5 +616,12 @@ namespace CanteenOrdering
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)//退出账号，回到主界面
+        {
+            登录 f1 = new 登录();
+            f1.Show();
+            this.Close();
+        }
     }
 }

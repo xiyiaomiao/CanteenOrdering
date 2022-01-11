@@ -40,8 +40,17 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.listView1 = new System.Windows.Forms.ListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,15 +63,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -121,11 +122,14 @@
             this.label1.Size = new System.Drawing.Size(301, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "欢迎！用户xxx进行点餐！";
+<<<<<<< HEAD
 
 
 
             this.label1.Click += new System.EventHandler(this.label1_Click);
 
+=======
+>>>>>>> 3fb3d195dd845ff2dcf90d00a5ccb2a70ee6916e
             // 
             // tabPage2
             // 
@@ -190,6 +194,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button6);
             this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.button4);
             this.tabPage3.Controls.Add(this.panel2);
@@ -203,7 +208,20 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "个人资料";
             this.tabPage3.UseVisualStyleBackColor = true;
-
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Maroon;
+            this.button5.Font = new System.Drawing.Font("宋体", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button5.Location = new System.Drawing.Point(799, 251);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(242, 96);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "注销账号";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -235,6 +253,83 @@
             this.panel2.Size = new System.Drawing.Size(745, 296);
             this.panel2.TabIndex = 2;
             // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox5.Location = new System.Drawing.Point(429, 224);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.PasswordChar = '*';
+            this.textBox5.Size = new System.Drawing.Size(262, 42);
+            this.textBox5.TabIndex = 9;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox4.Location = new System.Drawing.Point(429, 127);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.PasswordChar = '*';
+            this.textBox4.Size = new System.Drawing.Size(262, 42);
+            this.textBox4.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(281, 236);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 30);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "***";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(281, 139);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(61, 30);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "***";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(281, 46);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(61, 30);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "***";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(19, 236);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(230, 30);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "再次输入新密码";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(19, 139);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(199, 30);
+            this.label9.TabIndex = 3;
+            this.label9.Text = "请输入新密码";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
+            this.textBox3.Location = new System.Drawing.Point(429, 34);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
+            this.textBox3.Size = new System.Drawing.Size(262, 42);
+            this.textBox3.TabIndex = 2;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -250,7 +345,7 @@
             this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button3.Font = new System.Drawing.Font("方正小标宋简体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Location = new System.Drawing.Point(799, 77);
+            this.button3.Location = new System.Drawing.Point(799, 116);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(242, 86);
             this.button3.TabIndex = 1;
@@ -350,7 +445,6 @@
             this.label2.Size = new System.Drawing.Size(75, 30);
             this.label2.TabIndex = 0;
             this.label2.Text = "昵称";
-
             // 
             // imageList1
             // 
@@ -361,95 +455,17 @@
             this.imageList1.Images.SetKeyName(2, "3.jpg");
             this.imageList1.Images.SetKeyName(3, "4.jpg");
             // 
-            // textBox3
+            // button6
             // 
-            this.textBox3.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox3.Location = new System.Drawing.Point(429, 34);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(262, 42);
-            this.textBox3.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(19, 139);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(199, 30);
-            this.label9.TabIndex = 3;
-            this.label9.Text = "请输入新密码";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(19, 236);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(230, 30);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "再次输入新密码";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(281, 46);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(61, 30);
-            this.label11.TabIndex = 5;
-            this.label11.Text = "***";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(281, 139);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 30);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "***";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(281, 236);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 30);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "***";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox4.Location = new System.Drawing.Point(429, 127);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.PasswordChar = '*';
-            this.textBox4.Size = new System.Drawing.Size(262, 42);
-            this.textBox4.TabIndex = 8;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Bold);
-            this.textBox5.Location = new System.Drawing.Point(429, 224);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.PasswordChar = '*';
-            this.textBox5.Size = new System.Drawing.Size(262, 42);
-            this.textBox5.TabIndex = 9;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Maroon;
-            this.button5.Font = new System.Drawing.Font("宋体", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(799, 232);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(242, 96);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "注销账号";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button6.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button6.Location = new System.Drawing.Point(799, 19);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(242, 65);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "退出账号";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // 用户主界面
             // 
@@ -508,5 +524,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
