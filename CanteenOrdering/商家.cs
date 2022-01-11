@@ -1528,5 +1528,12 @@ namespace CanteenOrdering
         {
 
         }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            登录 useruse1 = new 登录();
+            useruse1.Show();
+        }
     }
 }

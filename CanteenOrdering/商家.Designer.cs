@@ -114,6 +114,7 @@ namespace CanteenOrdering
             this.label1 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.button12 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -763,6 +764,7 @@ namespace CanteenOrdering
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.button12);
             this.tabPage5.Controls.Add(this.button2);
             this.tabPage5.Controls.Add(this.label13);
             this.tabPage5.Controls.Add(this.label12);
@@ -1030,6 +1032,17 @@ namespace CanteenOrdering
             this.imageList2.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.button12.Location = new System.Drawing.Point(630, 331);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(217, 74);
+            this.button12.TabIndex = 25;
+            this.button12.Text = "退出登录";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // 商家
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1153,5 +1166,6 @@ namespace CanteenOrdering
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
     }
 }
