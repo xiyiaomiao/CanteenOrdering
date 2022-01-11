@@ -226,7 +226,7 @@ namespace CanteenOrdering
 
                 
 
-                商品点餐界面 f1 = new 商品点餐界面(label3.Text,user_id,old_order);
+                商品点餐界面 f1 = new 商品点餐界面(label3.Text,user_id,label2.Text);
                 f1.Show();
 
 

@@ -358,6 +358,11 @@ namespace CanteenOrdering
             }
             sdr1.Close();
             cmd1.Cancel();
+            if (addr.Equals(""))
+            {
+                MessageBox.Show("请先完善个人信息！");
+                return;
+            }
             
 
 

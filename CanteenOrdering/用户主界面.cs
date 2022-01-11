@@ -308,6 +308,7 @@ namespace CanteenOrdering
                         }
                         
                     }
+
                     
                 }
                 
@@ -326,23 +327,25 @@ namespace CanteenOrdering
 
                 num--;
                 i++;
-            }
 
-            //移除重复数据项
-            int j1;
-            for (j1 = 0; j1 < listView1.Items.Count; j1++)
-            {
-                if (j1 > 0)
+                //移除重复数据项
+                int j1;
+                for (j1 = 0; j1 < listView1.Items.Count; j1++)
                 {
-                    if (listView1.Items[j1].Text.Equals(listView1.Items[j1 - 1].Text))
+                    if (j1 > 0)
                     {
-                        listView1.Items[j1].Remove();
+                        if (listView1.Items[j1].Text.Equals(listView1.Items[j1 - 1].Text))
+                        {
+                            listView1.Items[j1].Remove();
 
+                        }
                     }
-                }
-                
 
+
+                }
             }
+
+            
 
 
             this.listView1.EndUpdate();  //结束数据处理，UI界面一次性绘制。
