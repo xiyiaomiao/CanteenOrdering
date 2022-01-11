@@ -122,14 +122,7 @@
             this.label1.Size = new System.Drawing.Size(301, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "欢迎！用户xxx进行点餐！";
-<<<<<<< HEAD
 
-
-
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-
-=======
->>>>>>> 3fb3d195dd845ff2dcf90d00a5ccb2a70ee6916e
             // 
             // tabPage2
             // 
